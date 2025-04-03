@@ -39,13 +39,14 @@ function ProjectTile({
       id={`${project.id}`}
       ref={myTile}
       style={{
-        backgroundPositionY: `${
+        backgroundPositionY: `calc(50% + ${
           (scrollYPosition - (windowHeight * 2)) / (project.type === "cs" ? "4" : "6")
-        }px`,
+        }px)`,
         gridArea: `project-${sequence + 1}`,
         animationDelay: `${0 + (0.2 * sequence)}s`,
-        backgroundImage: `url(/assets/imgs/${project.abb}/preview.jpg`,
-        backgroundSize: "cover"
+        backgroundImage: `url(imgs/${project.abb}/preview.jpg)`,
+        backgroundSize: "cover",
+        backgroundRepeat: "repeat"
       }}
       className={
         project.id % 2 == 0

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import splash from "../assets/imgs/splash_2.jpg"
 
-function Landing({ scrollYPosition }) {
+function Landing({ scrollYPosition, windowHeight }) {
+  // let colorDeg = (windowHeight / scrollYPosition) * 360
+
   return (
     <div id="home" className="section top">
       <div className="splash-container">
@@ -13,11 +15,11 @@ function Landing({ scrollYPosition }) {
             alt="splash"
             // width={1920}
             // height={1080}
+            style={{
+              filter: `saturate(${(((scrollYPosition / 4) + windowHeight) / windowHeight) * 100}%)`
+            }}
             // style={{
-            //   width: "auto",
-            //   height: "100%",
-            //   top: `${scrollYPosition / 3}px`,
-            //   objectFit: "cover",
+            //   filter: `hue-rotate(${(((scrollYPosition * 20) + windowHeight) / windowHeight)}deg)`
             // }}
           />
         </div>

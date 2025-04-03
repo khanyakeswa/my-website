@@ -5,7 +5,6 @@ import { useState } from "react";
 function ScrollButton({ currentSection }) {
   const [aboveSection, setAboveSection] = useState("");
   const [belowSection, setBelowSection] = useState("");
-  console.log(currentSection)
 
   useEffect(() => {
     if (currentSection === "home" || currentSection === "/") {

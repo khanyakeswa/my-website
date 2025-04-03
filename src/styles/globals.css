@@ -767,7 +767,7 @@ body::-webkit-scrollbar {
   opacity: 1;
   transform: translateX(0);
   padding-left: 17.5px;
-  bottom: 35px;
+  bottom: 20px;
   z-index: 3;
 }
 

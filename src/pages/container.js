@@ -14,7 +14,7 @@ function Container({
 }) {
   return (
     <>
-      <Landing scrollYPosition={scrollYPosition} />
+      <Landing scrollYPosition={scrollYPosition} windowHeight={windowHeight} />
       <Projects
         scrollYPosition={scrollYPosition}
         setProjectView={setProjectView}

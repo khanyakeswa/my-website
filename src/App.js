@@ -45,6 +45,7 @@ function App() {
   useEffect(() => {
     myMain.current.addEventListener("scroll", handleScroll);
     setWindowHeight(window.innerHeight * 0.5);
+    console.log(windowHeight/scrollYPosition)
     return () => {
       myMain.current.removeEventListener("scroll", handleScroll);
     };
