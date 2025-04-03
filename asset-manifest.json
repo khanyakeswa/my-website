@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/http//:khanyakeswa.github.io/my-website/static/css/main.57ddbd97.css",
-    "main.js": "/http//:khanyakeswa.github.io/my-website/static/js/main.99d9972e.js",
+    "main.css": "/http//:khanyakeswa.github.io/my-website/static/css/main.4c8bcf1b.css",
+    "main.js": "/http//:khanyakeswa.github.io/my-website/static/js/main.32eb1582.js",
     "static/js/453.195b869a.chunk.js": "/http//:khanyakeswa.github.io/my-website/static/js/453.195b869a.chunk.js",
     "static/media/hero.jpg": "/http//:khanyakeswa.github.io/my-website/static/media/hero.34a7e1dba277cdded56b.jpg",
     "static/media/splash_2.jpg": "/http//:khanyakeswa.github.io/my-website/static/media/splash_2.22b5beb4199024cb8e3b.jpg",
@@ -19,12 +19,12 @@
     "static/media/logo.svg": "/http//:khanyakeswa.github.io/my-website/static/media/logo.5a9531b277b2b0a7e2e1.svg",
     "index.html": "/http//:khanyakeswa.github.io/my-website/index.html",
     "static/media/darkmode.svg": "/http//:khanyakeswa.github.io/my-website/static/media/darkmode.6eca65edad418036c4b2.svg",
-    "main.57ddbd97.css.map": "/http//:khanyakeswa.github.io/my-website/static/css/main.57ddbd97.css.map",
-    "main.99d9972e.js.map": "/http//:khanyakeswa.github.io/my-website/static/js/main.99d9972e.js.map",
+    "main.4c8bcf1b.css.map": "/http//:khanyakeswa.github.io/my-website/static/css/main.4c8bcf1b.css.map",
+    "main.32eb1582.js.map": "/http//:khanyakeswa.github.io/my-website/static/js/main.32eb1582.js.map",
     "453.195b869a.chunk.js.map": "/http//:khanyakeswa.github.io/my-website/static/js/453.195b869a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.57ddbd97.css",
-    "static/js/main.99d9972e.js"
+    "static/css/main.4c8bcf1b.css",
+    "static/js/main.32eb1582.js"
   ]
 }
