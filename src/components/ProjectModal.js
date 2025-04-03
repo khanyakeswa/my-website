@@ -55,6 +55,7 @@ function ProjectModal({
             height={600}
             style={{
               width: "100%",
+              maxWidth: "1179px",
               height: "auto",
             }}
           />
