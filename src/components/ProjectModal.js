@@ -49,12 +49,13 @@ function ProjectModal({
         </div>
         <div className="project-document">
           <img
-            src={`../assets/imgs/${project.abb}/hero.jpg`}
+            src={`/imgs/${project.abb}/hero.jpg`}
             alt={projectData[currentProject].title}
             width={800}
             height={600}
             style={{
               width: "100%",
+              maxWidth: "1179px",
               height: "auto",
             }}
           />
