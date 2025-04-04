@@ -1,11 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Menu from "./components/Menu";
 import ScrollButton from "./components/ScrollButton";
 //
-import Container from "./pages/container"
+import Container from "./pages/container";
 import Landing from "./pages/landing";
 import AboutMe from "./pages/about";
 import Projects from "./pages/projects";
@@ -45,7 +44,7 @@ function App() {
   useEffect(() => {
     myMain.current.addEventListener("scroll", handleScroll);
     setWindowHeight(window.innerHeight * 0.5);
-    console.log(windowHeight/scrollYPosition)
+    console.log(windowHeight / scrollYPosition);
     return () => {
       myMain.current.removeEventListener("scroll", handleScroll);
     };
@@ -164,22 +163,13 @@ function App() {
             mySidebar={mySidebar}
           />
         </div>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Container
-                scrollYPosition={scrollYPosition}
-                windowHeight={windowHeight}
-                currentSection={currentSection}
-                projectView={projectView}
-                setProjectView={setProjectView}
-              />
-            }
-          ></Route>
-        </Routes>
-        <AboutMe />
-        <LatestWork />
+        <Container
+          scrollYPosition={scrollYPosition}
+          windowHeight={windowHeight}
+          currentSection={currentSection}
+          projectView={projectView}
+          setProjectView={setProjectView}
+        />
       </main>
     </>
   );
