@@ -233,7 +233,7 @@ body::-webkit-scrollbar {
   position: relative;
   width: 100%;
   color: #4d4d4f;
-  font-size: 14px;
+  font-size: .95rem;
 }
 
 .portfolio-button-wrapper {
@@ -764,11 +764,12 @@ body::-webkit-scrollbar {
   font-family: "Metropolis Regular";
   color: #505050;
   font-size: 15px;
-  opacity: 1;
+  opacity: 0;
   transform: translateX(0);
   padding-left: 17.5px;
   bottom: 20px;
   z-index: 3;
+  transition: opacity 0.2s;
 }
 
 .projects-grid .project-label-shadow {
@@ -788,6 +789,10 @@ body::-webkit-scrollbar {
   );
   transition: opacity 0.2s;
   z-index: -1;
+}
+
+.project-tile-wrapper:hover .project-label {
+  opacity: 1;
 }
 
 .project-tile-wrapper:hover .project-label-shadow {
@@ -826,7 +831,7 @@ body::-webkit-scrollbar {
   justify-self: stretch;
   overflow: hidden;
   cursor: pointer;
-  /* animation: fadeIn 0.75s; */
+  animation: fadeIn 0.75s;
   transform: scale3d(1, 1, 1);
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -982,6 +987,7 @@ body::-webkit-scrollbar {
   overflow: scroll;
   scroll-behavior: smooth;
   background-color: #d1d3d4;
+  animation: fadeIn 0.75s;
   box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.075);
 }
 
