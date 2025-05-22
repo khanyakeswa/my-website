@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.41b25bb2.css",
-    "main.js": "./static/js/main.bc24d7b7.js",
+    "main.css": "./static/css/main.5a52212b.css",
+    "main.js": "./static/js/main.51ec4973.js",
     "static/js/453.195b869a.chunk.js": "./static/js/453.195b869a.chunk.js",
     "static/media/splash_2.jpg": "./static/media/splash_2.22b5beb4199024cb8e3b.jpg",
     "static/media/metropolis-semibold-webfont.woff": "./static/media/metropolis-semibold-webfont.3c24e07ce3d85f3e01b3.woff",
@@ -17,12 +17,12 @@
     "static/media/logo.svg": "./static/media/logo.5a9531b277b2b0a7e2e1.svg",
     "index.html": "./index.html",
     "static/media/darkmode.svg": "./static/media/darkmode.6eca65edad418036c4b2.svg",
-    "main.41b25bb2.css.map": "./static/css/main.41b25bb2.css.map",
-    "main.bc24d7b7.js.map": "./static/js/main.bc24d7b7.js.map",
+    "main.5a52212b.css.map": "./static/css/main.5a52212b.css.map",
+    "main.51ec4973.js.map": "./static/js/main.51ec4973.js.map",
     "453.195b869a.chunk.js.map": "./static/js/453.195b869a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.41b25bb2.css",
-    "static/js/main.bc24d7b7.js"
+    "static/css/main.5a52212b.css",
+    "static/js/main.51ec4973.js"
   ]
 }
