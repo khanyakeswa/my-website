@@ -10,7 +10,7 @@ function ProjectTag({ tagName }) {
     tagColor = "rgba(63, 132, 229, 0.7)";
   } else if ((tagName == "Hardware")) {
     tagColor = "rgba(83, 221, 108, 0.7)";
-  } else if ((tagName == "E-Commerce")) {
+  } else if ((tagName == "Brand")) {
     tagColor = "rgba(246, 174, 45, 0.7)";
   } else if ((tagName == "Lifestyle")) {
     tagColor = "rgba(105, 48, 109, 0.7)";

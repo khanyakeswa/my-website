@@ -10,8 +10,10 @@ function Projects({
   windowHeight,
   projectView,
   setProjectView,
+  projectSection
 }) {
   const [currentProject, setCurrentProject] = useState(0);
+  const [scrollIndicatorVisible, setScrollIndicatorVisible] = useState(true);
   const projectModalBackdropRef = useRef(null);
   const filterCancelRef = useRef(null);
   const projectGrid = useRef(null);
@@ -26,7 +28,7 @@ function Projects({
         return "100%";
       case "cs":
         return "200%";
-      case "etc":
+      case "id":
         return "300%";
       default:
         return "-100%";
@@ -53,6 +55,13 @@ function Projects({
     // }
     setProjects(projectData);
     gridScrollback();
+    projectGrid.current.addEventListener("scroll", () => {
+      if (projectGrid.current.scrollLeft >= 500) {
+        setScrollIndicatorVisible(false);
+      } else {
+        setScrollIndicatorVisible(true);
+      }
+    });
     filterCancelRef.current.addEventListener("click", () => {
       setCurrentFilter(null);
       setProjects(projectData);
@@ -70,96 +79,89 @@ function Projects({
   const projectData = [
     {
       id: 0,
-      title: "Co-Care",
-      abb: "cc",
-      description: "This is the second project",
-      image: "preview.jpg",
+      title: "Coordi",
+      abb: "coordi",
+      description: "Co-parenting companion app",
+      imgs: [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+        20,
+      ],
       hero: "hero.jpg",
       type: ".cs",
-      tags: ["UX", "SaaS", "Lifestyle"],
-    },
-    {
-      id: 1,
-      title: "True Finals Landing Page",
-      abb: "tf",
-      description: "This is the first project",
-      image: "preview.jpg",
-      hero: "hero.jpg",
-      type: ".ws",
       tags: ["UX", "SaaS"],
     },
     {
-      id: 2,
-      title: "D&D Party Creator",
-      description: "This is the fourth project",
-      image: "preview.jpg",
+      id: 1,
+      title: "Quest Apparel",
+      abb: "quest",
+      description: "Boutique streetwear brand and shopping experience",
+      imgs: [0, 1, 2, 3, 4, 5, 6],
       hero: "hero.jpg",
       type: ".ws",
-      tags: ["UX", "SWE", "Fun"],
+      tags: ["UX", "Brand"],
+    },
+    {
+      id: 2,
+      title: "True Finals Landing Page",
+      abb: "tf",
+      description: "Promotional page for a tournament management system",
+      imgs: [0],
+      hero: "hero.jpg",
+      type: ".ws",
+      tags: ["</>", "Brand"],
     },
     {
       id: 3,
+      title: "Co-Care",
+      abb: "cc",
+      description: "Covid-19 test appointment scheduling",
+      imgs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      hero: "hero.jpg",
+      type: ".cs",
+      tags: ["UX", "SaaS", "Health"],
+    },
+    {
+      id: 4,
       title: "PeopleSpheres",
       abb: "ps",
-      description: "This is the third project",
-      image: "preview.jpg",
+      description: "Versatile HR platform",
+      imgs: [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+        20,
+      ],
+      hero: "hero.jpg",
+      type: ".app",
+      tags: ["UX", "SaaS"],
+    },
+    {
+      id: 5,
+      title: "Meeter",
+      abb: "mtr",
+      description: "P2P local networking app",
+      imgs: [0, 1, 2, 3, 4, 5, 6],
       hero: "hero.jpg",
       type: ".app",
       tags: ["UX", "Interface"],
     },
     {
-      id: 4,
-      title: "Garmin Watch",
-      description: "This is the fifth project",
-      image: "preview.jpg",
-      hero: "hero.jpg",
-      type: ".cs",
-      tags: ["", ""],
-    },
-    {
-      id: 5,
-      title: "Co-Care",
-      description: "This is the sixth project",
-      image: "preview.jpg",
-      hero: "hero.jpg",
-      type: ".cs",
-      tags: ["", ""],
-    },
-    {
       id: 6,
-      title: "Project 7",
-      description: "This is the seventh project",
-      image: "preview.jpg",
+      title: "Garmin Watch",
+      abb: "gw",
+      description: "Modern cycling watch and accompanying interface",
+      imgs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
       hero: "hero.jpg",
-      type: ".fs",
-      tags: ["", ""],
+      type: ".id",
+      tags: ["Hardware", "Interface"],
     },
     {
       id: 7,
-      title: "Project 8",
-      description: "This is the eighth project",
-      image: "preview.jpg",
+      title: "Braun KH-2000",
+      abb: "kh",
+      description: "A contemporary successor to Braun's KH-1000 headset",
+      imgs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       hero: "hero.jpg",
-      type: ".etc",
-      tags: ["", ""],
-    },
-    {
-      id: 8,
-      title: "Project 9",
-      description: "This is the ninth project",
-      image: "preview.jpg",
-      hero: "hero.jpg",
-      type: ".fs",
-      tags: ["", ""],
-    },
-    {
-      id: 9,
-      title: "Project 10",
-      description: "This is the tenth project",
-      image: "preview.jpg",
-      hero: "hero.jpg",
-      type: ".fs",
-      tags: ["", ""],
+      type: ".id",
+      tags: ["Hardware", "Interface"],
     },
   ];
   const projectFilters = [
@@ -180,8 +182,8 @@ function Projects({
     },
     {
       id: 4,
-      name: "etc",
-      text: "Etc.",
+      name: "id",
+      text: "ID",
     },
   ];
 
@@ -234,7 +236,7 @@ function Projects({
           project={projectData[currentProject]}
         />
       )}
-      <div id="projects" className="section portfolio">
+      <div ref={projectSection} id="projects" className="section portfolio">
         <div className="project-header">
           <div className="title">
             Ideas Rooted in Reality,
@@ -280,6 +282,7 @@ function Projects({
           <div className="projects-grid">
             <div className="grid-placeholder"></div>
             {projects}
+            <div className="grid-spacer"></div>
           </div>
         </div>
       </div>

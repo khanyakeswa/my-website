@@ -12,14 +12,14 @@ function ProjectTile({
   setCurrentProject,
   projectView,
   setProjectView,
-  projectModalBackdropRef
+  projectModalBackdropRef,
 }) {
   const myTile = useRef(null);
 
   useEffect(() => {
     myTile.current.addEventListener("click", (evt) => {
       handleProjectClick(evt.target.id);
-      console.log(sequence)
+      console.log(sequence);
     });
   }, [myTile]);
 
@@ -33,20 +33,21 @@ function ProjectTile({
       setProjectView(true);
     }
   };
-  
+
   return (
     <div
       id={`${project.id}`}
       ref={myTile}
       style={{
         backgroundPositionY: `calc(50% + ${
-          (scrollYPosition - (windowHeight * 2)) / (project.type === "cs" ? "4" : "6")
+          (scrollYPosition - windowHeight * 2) /
+          (project.type === "cs" ? "4" : "6")
         }px)`,
         gridArea: `project-${sequence + 1}`,
-        animationDelay: `${0 + (0.2 * sequence)}s`,
+        animationDelay: `${0 + 0.2 * sequence}s`,
         backgroundImage: `url(imgs/${project.abb}/preview.jpg)`,
         backgroundSize: "cover",
-        backgroundRepeat: "repeat"
+        backgroundRepeat: "repeat",
       }}
       className={
         project.id % 2 == 0
@@ -55,12 +56,13 @@ function ProjectTile({
       }
     >
       <div className="tags-container">{tags}</div>
-      <div className="project-label">
-        <div className="project-tile_title">{project.title}</div>
-        <div className="project-tile_description">{project.description}</div>
-        <div className="project-tags-wrapper"></div>
+      <div className="project-label-shadow">
+        <div className="project-label">
+          <div className="project-tile_title">{project.title}</div>
+          <div className="project-tile_description">{project.description}</div>
+          <div className="project-tags-wrapper"></div>
+        </div>
       </div>
-      <div className="project-label-shadow"></div>
       {/* <div className="project-image-wrapper">
           <Image
             src="/assets/imgs/project1-preview.jpg"

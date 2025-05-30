@@ -1,8 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 // import placeholderImage from "../../public/assets/imgs/project1-preview.jpg";
-import placeholderImage from "../assets/imgs/project1-preview.jpg";
-import hero from "../assets/imgs/tf/hero.jpg"
+import ProjectImage from "./ProjectImage";
 
 function ProjectModal({
   projectModalBackdropRef,
@@ -10,10 +9,13 @@ function ProjectModal({
   currentProject,
   setProjectView,
   projectView,
-  project
+  project,
 }) {
   const modalRef = useRef(null);
   const myCornerCloseButton = useRef(null);
+  const projectIMGs = project.imgs.map((img) => {
+    return <ProjectImage key={img} currentProject={currentProject} project={project} projectData={projectData} img={img}/>
+});
 
   useEffect(() => {
     projectModalBackdropRef.current.addEventListener("click", () => {
@@ -47,19 +49,7 @@ function ProjectModal({
           </svg>
           <div className="close-button-corner-label">CLOSE</div>
         </div>
-        <div className="project-document">
-          <img
-            src={`/imgs/${project.abb}/hero.jpg`}
-            alt={projectData[currentProject].title}
-            width={800}
-            height={600}
-            style={{
-              width: "100%",
-              maxWidth: "1179px",
-              height: "auto",
-            }}
-          />
-        </div>
+        <div className="project-document">{projectIMGs}</div>
       </div>
       <div ref={projectModalBackdropRef} className="backdrop">
         <div className="close-button">{projectData[currentProject].title}</div>

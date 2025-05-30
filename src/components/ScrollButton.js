@@ -15,10 +15,10 @@ function ScrollButton({ currentSection }) {
       setBelowSection("about");
     } else if (currentSection === "about") {
       setAboveSection("projects");
-      setBelowSection("latest-work");
-    } else if (currentSection === "latest-work") {
-      setAboveSection("projects");
-      setBelowSection("latest-work");
+      setBelowSection("contact");
+    } else if (currentSection === "contact") {
+      setAboveSection("about");
+      setBelowSection("contact");
     }
   }, [currentSection]);
 
@@ -40,8 +40,8 @@ function ScrollButton({ currentSection }) {
         </div>
       </HashLink>
       <HashLink smooth to={`#contact`}>
-        <div className="portfolio-button-wrapper">
-          <div className="portfolio-button">
+        <div className="contact-button-wrapper" style={currentSection !== "contact" ? {opacity: 1} : {opacity: 0}}>
+          <div className="contact-button">
             <div className="button-content">LET&apos;S TALK</div>
             <div className="button-graphic">
               <svg

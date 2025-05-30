@@ -53,8 +53,8 @@
 html,
 body {
   overflow-x: hidden;
-  line-height: 1.3; /* Overide normalize */
   scroll-behavior: smooth;
+  line-height: 0;
 }
 
 body {
@@ -79,6 +79,7 @@ main {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  background-color: #fff;
 }
 
 .section {
@@ -209,6 +210,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   font-family: "Metropolis Light", sans-serif;
   font-size: 45px;
+  line-height: 1.3;
 }
 
 .sidebar .title .name {
@@ -226,17 +228,17 @@ body::-webkit-scrollbar {
   padding-top: 60px;
 }
 
-.story {
+.sidebar .story {
   display: flex;
   flex-direction: column;
   padding-top: 70px;
   position: relative;
   width: 100%;
-  color: #4d4d4f;
-  font-size: .95rem;
+  color: #505050;
+  font-size: 0.95rem;
 }
 
-.portfolio-button-wrapper {
+.contact-button-wrapper {
   bottom: 70px;
   left: 70px;
   position: fixed;
@@ -249,9 +251,10 @@ body::-webkit-scrollbar {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   transition: box-shadow 0.25s;
   transition: transform 0.05s;
+  transition: opacity 0.2s;
 }
 
-.portfolio-button {
+.contact-button {
   align-items: center;
   color: #ffffff;
   background-color: #e54e40;
@@ -263,9 +266,9 @@ body::-webkit-scrollbar {
   transition: all 250ms;
 }
 
-.portfolio-button-wrapper:hover,
-.portfolio-button-wrapperfocus,
-.portfolio-button-wrapperactive {
+.contact-button-wrapper:hover,
+.contact-button-wrapper:focus,
+.contact-button-wrapper:active {
   -webkit-animation-name: hvr-bob-float, hvr-bob;
   animation-name: hvr-bob-float, hvr-bob;
   -webkit-animation-duration: 0.3s, 1.5s;
@@ -284,19 +287,20 @@ body::-webkit-scrollbar {
   transition: all 0.25s;
 }
 
-.portfolio-button .button-content {
+.contact-button .button-content {
   font-family: "Metropolis Semibold", sans-serif;
   font-size: 12px;
   margin-top: 6px;
   padding-right: 10px;
+  line-height: 1.3;
 }
 
-.portfolio-button .button-graphic {
+.contact-button .button-graphic {
   min-height: 10px;
   min-width: 6px;
 }
 
-.portfolio-button .button-graphic g#website_1 {
+.contact-button .button-graphic g#website_1 {
   fill: #ffffff;
 }
 
@@ -425,7 +429,7 @@ body::-webkit-scrollbar {
   position: relative;
   left: 50px;
   top: 50vh;
-  color: #4d4d4f;
+  color: #505050;
   font-size: 50px;
   font-family: "Ailerons", sans-serif;
   text-transform: uppercase;
@@ -622,10 +626,11 @@ body::-webkit-scrollbar {
 }
 
 .section.portfolio .project-header .title {
-  font-family: "Metropolis Regular";
+  font-family: "Metropolis Light", sans-serif;
   font-size: 45px;
   color: #505050;
   padding-right: 15px;
+  line-height: 1.3;
 }
 
 .section.portfolio .project-header .content {
@@ -691,6 +696,7 @@ body::-webkit-scrollbar {
   font-family: "Metropolis Regular";
   color: #a0a0a0;
   font-size: 0.8em;
+  line-height: 1.3;
   padding: 12px 0;
   min-width: 50px;
   text-align: center;
@@ -712,6 +718,13 @@ body::-webkit-scrollbar {
 
 .project-tile-wrapper:hover .tags-container {
   opacity: 1;
+}
+.project-tile-wrapper:hover .project-label {
+  opacity: 1;
+}
+
+.projectImage {
+  line-height: 0;
 }
 
 .project-tag {
@@ -755,7 +768,7 @@ body::-webkit-scrollbar {
     "placeholder project-2 project-4 project-6 project-8 project-10 project-12";
   justify-content: start;
   width: auto;
-  padding: 70px 0 70px 0;
+  padding: 70px 70px 70px 0;
   height: 100vh;
 }
 
@@ -764,12 +777,10 @@ body::-webkit-scrollbar {
   font-family: "Metropolis Regular";
   color: #505050;
   font-size: 15px;
-  opacity: 0;
   transform: translateX(0);
   padding-left: 17.5px;
   bottom: 20px;
-  z-index: 3;
-  transition: opacity 0.2s;
+  line-height: 1.3;
 }
 
 .projects-grid .project-label-shadow {
@@ -780,7 +791,7 @@ body::-webkit-scrollbar {
   pointer-events: none;
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.6),
     rgba(0, 0, 0, 0.35),
     rgba(0, 0, 0, 0.2),
     rgba(0, 0, 0, 0.1),
@@ -814,7 +825,7 @@ body::-webkit-scrollbar {
   color: #ffffff;
   font-weight: 300;
   margin-top: 10px;
-  opacity: 0.5;
+  opacity: 0.75;
   transition: opacity 0.2s;
 }
 
@@ -822,6 +833,9 @@ body::-webkit-scrollbar {
   width: calc(33vw - 140px);
   min-width: 455px;
   grid-area: placeholder;
+}
+.section.portfolio .projects-grid .grid-spacer {
+  width: 60px;
 }
 
 .section.portfolio .projects-grid .project-tile-wrapper {
@@ -918,21 +932,14 @@ body::-webkit-scrollbar {
 
 .project-modal .close-button-corner {
   position: absolute;
-  left: 70px;
-  top: 70px;
-  width: 200px;
-  height: 200px;
-  opacity: 0;
-  background: rgba(1, 1, 1, 1);
-  background: radial-gradient(
-    farthest-side at 0% 0%,
-    rgba(25, 25, 25, 0.7),
-    rgba(25, 25, 25, 0.5),
-    rgba(25, 25, 25, 0)
-  );
+  right: 0;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  opacity: 1;
   transition: opacity 0.2s;
 }
-.project-modal .close-button-corner:hover {
+.project-modal .close-button-corner:hover .close-button-corner-label {
   opacity: 1;
 }
 .project-modal .close-button-corner:hover svg {
@@ -940,13 +947,13 @@ body::-webkit-scrollbar {
 }
 
 .project-modal .close-button-corner svg {
-  fill: #fff;
-  width: 57.5px;
-  height: 57.5px;
+  fill: #e54e40;
+  width: 45px;
+  height: 45px;
   left: 12.5px;
   top: 12.5px;
-  padding: 20px;
-  opacity: 0;
+  padding: 15px;
+  opacity: 0.75;
   position: absolute;
   cursor: pointer;
   transition: opacity 0.3s;
@@ -954,11 +961,14 @@ body::-webkit-scrollbar {
 
 .close-button-corner-label {
   font-family: "Metropolis Light";
+  color: #e54e40;
   font-size: 12.5px;
   position: absolute;
-  top: 35px;
-  left: 70px;
+  top: 37.5px;
+  right: 70px;
+  opacity: 0;
   user-select: none;
+  transition: opacity 0.3s;
 }
 
 .project-modal .close-button {
@@ -982,8 +992,9 @@ body::-webkit-scrollbar {
 }
 
 .project-modal .content {
-  width: 100%;
-  height: calc(100%);
+  width: auto;
+  max-width: 1372px;
+  height: 100%;
   overflow: scroll;
   scroll-behavior: smooth;
   background-color: #d1d3d4;
@@ -1003,101 +1014,262 @@ body::-webkit-scrollbar {
 
 .section.about-me .left {
   display: flex;
-  flex: 0 0;
+  width: calc(33vw - 140px);
+  min-width: 455px;
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.075);
 }
 
 .section.about-me .right {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+  grid-template-areas:
+    "story-1 story-2"
+    "story-1 story-2"
+    "tiles tiles";
   flex: 1;
-  flex-direction: column;
-  padding: 70px 0 0 70px;
 }
 
 .section.about-me .splash {
   flex: 1;
   min-width: 275px;
-  background: url(../assets/imgs/splash_2.jpg) no-repeat center center;
+  background: url(../assets/imgs/splash_1.jpg) no-repeat center center;
   background-size: cover;
 }
 
-.section.about-me .content {
-  display: flex;
-  padding-top: 70px;
-}
-
-.section.about-me .title {
+.section.about-me .story {
   display: flex;
   flex-direction: column;
-}
-
-.section.about-me .title .header {
-  font-family: "Metropolis Regular";
-  font-size: 37px;
+  justify-content: center;
+  line-height: 1.3;
   color: #505050;
+  font-family: "Metropolis Regular", sans-serif;
+  font-size: 0.95rem;
+  padding-left: 35px;
 }
 
-.section.about-me .title .header.sub {
-  color: #e54e40;
+.section.about-me #para-1 {
+  grid-area: story-1;
 }
 
-.section.about-me .title .underscore {
-  border-top: 4px solid #e54e40;
-  margin-top: 40px;
-  max-width: 100px;
-  min-width: 100px;
+.section.about-me #para-2 {
+  grid-area: story-2;
 }
 
-.section.about-me .half {
+.section.about-me .skill-tile-container {
   display: flex;
-  flex-direction: column;
-  padding: 0 30px;
+  width: 100%;
+  flex: 1;
+  grid-area: tiles;
+  overflow-x: scroll;
+  align-items: end;
+}
+
+.section.about-me .skill-tile-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: calc(100% - 20px);
+  aspect-ratio: 1 / 1;
+  background-color: #e54e40;
+  margin-left: 10px;
 }
-.section.about-me .half:first-child {
-  padding-left: 0;
+
+.section.about-me .skill-title {
+  position: absolute;
+  font-family: "Metropolis Medium", sans-serif;
+  line-height: 1.3;
+  font-size: 0.95rem;
+  top: 20px;
+  left: 20px;
 }
-.section.about-me .half:last-child {
+
+.section.about-me .skill-description {
+  font-family: "Metropolis Thin", sans-serif;
+  line-height: 1.3;
+  font-size: 11px;
+  padding: 20px 20px 0 20px;
+}
+
+.section.contact {
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.075);
+  height: 100vh;
+  display: flex;
+  align-items: center;
   padding-right: 0;
 }
 
-.section.about-me .half .graphics {
+.section.contact .contact-header {
+  position: absolute;
+  height: 100%;
+  width: calc(33vw - 140px);
+  min-width: 455px;
+  padding: 0 35px;
   display: flex;
-  height: 300px;
   justify-content: center;
-  position: relative;
-  flex-shrink: 0;
+  align-items: start;
+  flex-direction: column;
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.075);
 }
 
-.section.about-me .half .graphic {
-  background: no-repeat center center;
-  background-size: contain;
-  flex: 1;
-}
-
-/* .section.about-me .ui-ux .graphic.first {
-  background-image: url(/UX_UI_1.svg);
-}
-
-.section.about-me .ui-ux .graphic.second {
-  background-image: url(/VCD_1.svg);
-}
-
-.section.about-me .industrial .graphic.first {
-  background-image: url(/Sketching_1.svg);
-}
-
-.section.about-me .industrial .graphic.second {
-  background-image: url(/CAD_1.svg);
-} */
-
-.section.about-me .half .caption {
+.section.contact .contact-header .title {
   font-family: "Metropolis Light";
-  font-size: 15px;
-  padding: 30px 30px;
+  font-size: 45px;
   color: #505050;
-  overflow-y: scroll;
+  padding-right: 15px;
+  line-height: 1.3;
+}
+.section.contact .contact-header .contact-link-container {
+  margin-top: 15px;
 }
 
-.section.about-me .half .caption::-webkit-scrollbar {
-  display: hidden;
+.section.contact .contact-header .contact-link-wrapper {
+  height: auto;
+  display: flex;
+  margin-left: 2.5px;
 }
+
+.section.contact .contact-header .contact-link {
+  font-family: "Metropolis Regular", sans-serif;
+  font-size: 0.95em;
+  color: #e54e40;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+.section.contact .contact-link-wrapper svg {
+  fill: #e54e40;
+  width: 12px;
+  margin-left: 5px;
+}
+
+.section.contact .contact-placeholder {
+  width: calc(33vw - 140px);
+  min-width: 455px;
+}
+
+.section.contact .contact-form-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section.contact .contact-form {
+  position: relative;
+  width: 455px;
+  height: 80%;
+  padding: 35px;
+  background-color: #e54e40;
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.075);
+  line-height: 1.3;
+}
+.section.contact .contact-form p {
+  font-family: "Metropolis Light", sans-serif;
+  font-size: 22.5px;
+}
+.section.contact .contact-form span {
+  font-family: "Metropolis Semibold", sans-serif;
+  font-size: 22.5px;
+}
+
+.section.contact .contact-form .underscore {
+  width: 50px;
+  border-bottom: 2px solid #fff;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.section.contact .formElement {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.section.contact label {
+  font-family: "Metropolis Regular", sans-serif;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.section.contact .formElement input:focus,
+textarea:focus {
+  opacity: 1;
+}
+
+.section.contact .formElement input,
+textarea {
+  border: 0;
+  opacity: 0.75;
+  padding: 8px;
+  resize: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 2px 26px -14px rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: 1px 2px 26px -14px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 1px 2px 26px -14px rgba(0, 0, 0, 0.2) inset;
+  color: #fff;
+  transition: all 0.2s;
+}
+.section.contact .formElement input, textarea {
+  font-family: "Metropolis Light", sans-serif;
+}
+
+.section.contact .formElement input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.section.contact .formButton {
+  position: absolute;
+  width: 100px;
+  padding: 10px;
+  left: 35px;
+  bottom: 35px;
+  background-color: #e54e40;
+  margin-left: auto;
+  border: 2px solid #fff;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+.section.contact .formButton span {
+  font-family: "Metropolis Semibold", sans-serif;
+  font-size: 12px;
+}
+.section.contact .formButton:hover {
+  box-shadow: 0 5px 12px -3px rgba(0, 0, 0, 0.2);
+  color: #e54e40;
+  background-color: #fff;
+}
+
+.section.contact .contact-add-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.section.contact .contact-add-container .contact-add-wrapper {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  margin-bottom: 15px;
+}
+.section.contact .contact-add-wrapper svg {
+  width: 17.5px;
+  fill: #e54e40;
+  height: auto;
+}
+
+.section.contact .contact-add-wrapper span {
+  font-family: "Metropolis Regular", sans-serif;
+  color: #505050;
+  margin-left: 10px;
+  margin-top: 5px;
+  font-size: .95em;
+}
+

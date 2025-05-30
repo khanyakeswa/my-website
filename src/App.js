@@ -4,11 +4,10 @@ import Sidebar from "./components/Sidebar";
 import Menu from "./components/Menu";
 import ScrollButton from "./components/ScrollButton";
 //
-import Container from "./pages/container";
 import Landing from "./pages/landing";
-import AboutMe from "./pages/about";
 import Projects from "./pages/projects";
-import LatestWork from "./pages/latestWork";
+import About from "./pages/about";
+import Contact from "./pages/contact";
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { HashLink } from "react-router-hash-link";
@@ -22,10 +21,19 @@ function App() {
   const [windowHeight, setWindowHeight] = useState(0);
   const mySidebar = useRef();
   const myMain = useRef(null);
+  const landingSection = useRef(null);
+  const projectSection = useRef(null);
+  const aboutSection = useRef(null);
+  const contactSection = useRef(null);
 
   const handleScroll = () => {
     const newScrollYPosition = myMain.current.scrollTop;
-    const sections = document.querySelectorAll(".section");
+    const sections = [
+      landingSection.current,
+      projectSection.current,
+      aboutSection.current,
+      contactSection.current,
+    ];
     const sectionsArray = Array.from(sections);
     const currentSection = sectionsArray.find((section) => {
       const sectionTop = section.offsetTop;
@@ -44,7 +52,6 @@ function App() {
   useEffect(() => {
     myMain.current.addEventListener("scroll", handleScroll);
     setWindowHeight(window.innerHeight * 0.5);
-    console.log(windowHeight / scrollYPosition);
     return () => {
       myMain.current.removeEventListener("scroll", handleScroll);
     };
@@ -142,17 +149,6 @@ function App() {
             </svg>
           </div>
         </div> */}
-        {/* <div class="navbar">
-        <div class="links">
-          <div class="link home">Home</div>
-          <div class="link about-me">About Me</div>
-          <div class="link process">My Process</div>
-          <div class="link portfolio">Portfolio</div>
-          <div class="link latest-work">Latest Work</div>
-        </div>
-        <div class="link-underscore"></div>
-        <div class="hamburger-menu"></div>
-      </div> */}
         <div className="home-wrapper">
           <Sidebar scrollYPosition={scrollYPosition} mySidebar={mySidebar} />
           <Menu
@@ -163,13 +159,27 @@ function App() {
             mySidebar={mySidebar}
           />
         </div>
-        <Container
+        {/* <Container
           scrollYPosition={scrollYPosition}
           windowHeight={windowHeight}
           currentSection={currentSection}
           projectView={projectView}
           setProjectView={setProjectView}
+        /> */}
+        <Landing
+          scrollYPosition={scrollYPosition}
+          windowHeight={windowHeight}
+          landingSection={landingSection}
         />
+        <Projects
+          scrollYPosition={scrollYPosition}
+          setProjectView={setProjectView}
+          projectView={projectView}
+          windowHeight={windowHeight}
+          projectSection={projectSection}
+        />
+        <About aboutSection={aboutSection} />
+        <Contact contactSection={contactSection} />
       </main>
     </>
   );

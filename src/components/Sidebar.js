@@ -57,7 +57,7 @@ const Sidebar = ({ scrollYPosition, mySidebar }) => {
           <div className="story">
             From Philly to Jo&apos;Burg and back. Now living, yapping, balling,
             exploring, and growing in Brooklyn, NYC. Currently looking for my
-            next role.
+            next UXD role.
           </div>
         </div>
       </div>
