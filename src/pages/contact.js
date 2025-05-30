@@ -40,7 +40,7 @@ function Contact({ contactSection }) {
         </div>
         <div className="contact-link-container">
           <div className="contact-link-wrapper">
-            <a className="contact-link" href="">
+            <a className="contact-link" href="https://www.linkedin.com/in/khanyakeswa/">
               LinkedIn
               <svg
                 id="a"
@@ -59,7 +59,7 @@ function Contact({ contactSection }) {
             </a>
           </div>
           <div className="contact-link-wrapper">
-            <a className="contact-link" href="">
+            <a className="contact-link" href="https://dribbble.com/khanyakeswa/about?utm_source=Clipboard_%22clipboard_about%22&utm_campaign=%22khanyakeswa%22&utm_content=%22About%20khanyakeswa%22&utm_medium=Social_Share">
               Dribble
               <svg
                 id="a"
@@ -78,7 +78,7 @@ function Contact({ contactSection }) {
             </a>
           </div>
           <div className="contact-link-wrapper">
-            <a className="contact-link" href="">
+            <a className="contact-link" href="https://www.behance.net/khanyakeswa">
               Behance
               <svg
                 id="a"
@@ -97,7 +97,7 @@ function Contact({ contactSection }) {
             </a>
           </div>
           <div className="contact-link-wrapper">
-            <a className="contact-link" href="">
+            <a className="contact-link" href="https://github.com/khanyakeswa">
               GitHub
               <svg
                 id="a"
@@ -116,7 +116,7 @@ function Contact({ contactSection }) {
             </a>
           </div>
           <div className="contact-link-wrapper">
-            <a className="contact-link" href="">
+            <a className="contact-link" href="https://medium.com/@khanya.keswa">
               Medium
               <svg
                 id="a"
